@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'categories',
     'posts',
     'comments',
-    'personal_information',
+    'presentation',
     'skills',
     'projects',
     'contact',

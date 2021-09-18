@@ -6,7 +6,6 @@ class Project(models.Model):
     user = models.ForeignKey(User, on_delete=CASCADE, null=False)
     title = models.CharField(max_length=255)
     description = models.TextField()
-    technologies = models.CharField(max_length=255)
-    image = models.ImageField(upload_to ='portfolio/images')
+    image = models.ImageField(upload_to ='projects/images')
     repository = models.URLField()
     website = models.URLField(default= '')
