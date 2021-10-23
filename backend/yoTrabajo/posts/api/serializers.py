@@ -4,8 +4,8 @@ from users.api.serializers import UserSerializer
 from categories.api.serializers import CategoriesSerializer
 
 class PostSerializer(serializers.ModelSerializer):
-    #user = UserSerializer()
-    #category = CategoriesSerializer()
+    user = UserSerializer()
+    category = CategoriesSerializer()
     class Meta:
         model = Post
-        fields = ['id', 'title', 'content', 'miniature', 'created_at', 'published', 'user', 'category']
+        fields = ['id', 'title', 'description', 'content', 'miniature', 'created_at', 'published', 'user', 'category']

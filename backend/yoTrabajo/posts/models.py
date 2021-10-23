@@ -6,10 +6,11 @@ from categories.models import CategoriesModel
 
 class Post(models.Model):
     title = models.CharField(max_length=255)
+    description = models.CharField(max_length=255, default='')
     content = models.TextField()
     miniature = models.ImageField(upload_to='posts/images')
     created_at = models.DateTimeField(auto_now_add=True)
-    published = models.BooleanField(default=False)
+    published = models.BooleanField(default=True)
     user = models.ForeignKey(User, on_delete=SET_NULL, null=True)
     category = models.ForeignKey(CategoriesModel, on_delete=SET_NULL, null=True)
 
