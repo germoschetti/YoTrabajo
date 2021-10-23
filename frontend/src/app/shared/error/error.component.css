@@ -1,9 +1,26 @@
-.alert-danger {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 50px;
-    background-color: #f44336;
-    color: white;
-    z-index: 20;
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+h3{
+    font-family:Quicksand;
+}
+.alert{
+  position: absolute;
+  top: 0;
+  left: 25%;
+  width:50%;
+  margin:20px auto;
+  border-radius:5px;
+  z-index: 30;
+  border-left: 5px solid;
+}
+
+.danger-alert{
+    background-color: #f7a7a3;
+    padding:40px;
+    box-shadow:0 0 15px 5px rgba(77, 70, 70, 0.253);
+    color:#8f130c;
 }

@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+.menu {
+    position: fixed;
+    background-color: var(--first-color);
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins';
+    z-index: 30;
+}
+
+.logo {
+    color: #fff;
+    font-size: 30px;
+    padding: 0 10px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: auto 0;
+}
+.logo a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu-items {
+    display: flex;
+    list-style: none;
+    width: 100%;
+    justify-content: center;
+}
+.menu-items-end {
+    display: flex;
+    list-style: none;
+    justify-content: end;
+    width: 230px;
+}
+.menu-items-end ul {
+    width: 100%;
+}
+
+.menu-items li{
+    border-radius: 3px;
+    margin: 0 5px;
+}
+
+
+.menu-items li a, .menu-items-end li a {
+    padding: 7px 13px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: block;
+    color: #fff;
+}
+
+.menu-items li:hover, li.active {
+    background-color: rgba(0, 0, 0, .3);
+    transition: .4s;
+}
+
+.btn-menu {
+    margin-right: 30px;
+    font-size: 25px;
+    color: #414141;
+    cursor: pointer;
+    display: none;
+}
+
+ul.show {
+    top: 65px;
+}
+
+@media screen and (max-width: 1098px) {
+    .logo {
+        font-size: 30px;
+        padding: 0 35px;
+    }
+    .menu {
+        height: 65px;
+    }
+    .btn-menu {
+        display: inline-flex;
+    }
+    .menu-items {
+        position: fixed;
+        width: 100vw;
+        height: calc(100% - 65px);
+        background-color: var(--first-color);
+        top: -100vh;
+        text-align: center;
+        transition: all .5s;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .menu-items li {
+        margin: 20px 0;
+        line-height: 30px;
+
+    }
+    .menu-items li:hover {
+        background-color: none
+    }
+    .menu-items li a {
+        font-size: 20px;
+        color: white;
+        font-weight: bold;
+    }
+    .menu-items li a:hover {
+        color: #da6a7c;
+    }
+    .logo {
+        font-size: 25px;
+        padding-left: 35px;
+    }
+}

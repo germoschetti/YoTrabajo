@@ -1,0 +1,85 @@
+<app-navbar class="nav"></app-navbar>
+<div class="extra">
+
+    <img src="../../../assets/image/blog-bg.jpg" alt="" style="height: 70vh;" width="100%">
+
+    <div class="filter-container ">
+        <ul class="links-container">
+            <li class="filter-links filter-container-active" (click)='linkActive($event); getAllPosts()'>All</li>
+            <li class="filter-links" *ngFor='let category of categories'
+                (click)='linkActive($event); getPostsByCategory(category.id)'>{{category.title}}</li>
+        </ul>
+    </div>
+
+    <div class="selectdiv">
+        <label>
+            <select>
+                <option selected disabled>Categories</option>
+                <option>All</option>
+                <option>Interviews</option>
+                <option>LinkedIn</option>
+                <option value="">English</option>
+                <option value="">English</option>
+                <option value="">English</option>
+                <option value="">English</option>
+                <option value="">English</option>
+            </select>
+        </label>
+    </div>
+
+    <div class="container">
+        <div class="card-container" *ngFor='let post of posts'>
+            <div class="card">
+                <div class="image-data">
+                    <div class="background-image" [ngStyle]="{'background-image': 'url('+ post.miniature + ')'}"></div>
+                    <div class="publication-details">
+                        <a href="#" class="author"><i class="fas fa-user"></i> {{post.user.first_name}}
+                            {{post.user.last_name}}</a>
+                        <span class="date"><i class="fas fa-calendar-alt"></i> {{post.created_at | date: 'MMMM d, y'}}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="post-data">
+                    <h1 class="title">{{post.title}}</h1>
+                    <h2 class="subtitle">{{post.description}}</h2>
+                    <p class="description">
+                        {{post.content}}
+                    </p>
+                    <div class="cta">
+                        <a (click)='showPost(post.id)'>Read more &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- POST ID -->
+
+<div class="post">
+    <div class="container-post" *ngIf='postDetail'>
+        <img [src]="postDetail.miniature" class="post-image" alt="">
+        <div class="post-detail-container">
+            <div class="post-detail-data">
+                <div class="post-detail-information"> 
+                    <button (click)='hidePost()' style="height: 15px;">
+                        <======= </button>
+                  <div>
+                    <a href="#" class=""><i class="fas fa-user"></i>
+                        {{postDetail.user.first_name}} {{postDetail.user.last_name}}</a>
+                    <span><i class="fas fa-calendar-alt"></i>{{postDetail.created_at | date: 'MMMM d, y'}}</span>
+                  </div>
+                </div>
+                <h2>{{postDetail.title}}</h2>
+                <h3>{{postDetail.description}}</h3>
+                <p>{{postDetail.content}}</p>
+                
+            </div>
+        </div>
+
+
+    </div>
+</div>

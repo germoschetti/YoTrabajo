@@ -31,8 +31,10 @@ export class ErrorComponent implements OnInit {
 
   showMessage() {
     this.mostrar = true;
+    document.querySelector('#alert')?.classList.add('danger-alert')
     setTimeout(() => {
       this.mostrar = false;
+      document.querySelector('#alert')?.classList.remove('danger-alert')
     }, 3000);
   }
 

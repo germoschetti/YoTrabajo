@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { User } from 'src/app/models/user/user.module';
 import { UserService } from 'src/app/services/user.service';
@@ -19,7 +20,9 @@ export class LoginComponent implements OnInit {
   subscription: Subscription
   actualUser: string;
   token: string;
-  constructor(private _userService: UserService) {
+  constructor(
+    private _userService: UserService,
+    private router:Router) {
     this.username = '';
     this.email = '';
     this.password = '';
@@ -38,25 +41,25 @@ export class LoginComponent implements OnInit {
   }
 
   registerUser(form: any) {
-    if (this.username.trim() == '') {
-      alert('El nombre de usuario es un campo requerido');
+    if (this.username.trim() == '' || this.email.trim() == '' || this.password.trim() == '') {
+      this._userService.setError('All fields are required');
     }
-    else if (this.email.trim() == '') {
-      alert('El email es un campo requerido');
-    }
-    else if (this.password.trim() == '') {
-      alert('La contraseña es un campo requerido');
-    }
+
     else {
       this.user = new User(this.email, this.password, this.username);
       this._userService.registerUser(this.user).subscribe(data => {
         form.reset();
       }, err => {
-        if (err.error.email) {
-          this._userService.setError('There is already a registered user with this email');
-        }
+        console.log('err', err.error)
         if (err.error.username) {
           this._userService.setError('This username is already in use');
+        }
+        else if (err.error.email[0] == 'Enter a valid email address.') {
+          this._userService.setError('Enter a valid email address.');
+        }
+        else if (err.error.email) {
+          console.log(err.error.email);
+          this._userService.setError('There is already a registered user with this email');
         }
       })
 
@@ -64,18 +67,16 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser(form: any) {
-    if (this.loginEmail.trim() == '') {
-      alert('El email es un campo requerido')
+    if (this.loginEmail.trim() == '' || this.loginPassword.trim() == '') {
+      this._userService.setError('All fields are required');
     }
-    else if (this.loginPassword.trim() == '') {
-      alert('La contraseña es un campo requerido')
-    }
-    else {
+     else {
       this.user = new User(this.loginEmail, this.loginPassword)
       this._userService.loginUser(this.user).subscribe(data => {
         this._userService.setToken(data.access)
         this.getActualUser()
         form.reset()
+        this.router.navigate(['home'])
       }, err => {
         console.log("THE ERROR IS:", err)
         this._userService.setError('The credentials are wrong')
