@@ -10,6 +10,7 @@ import { ErrorComponent } from './shared/error/error.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
+import { SuccessComponent } from './shared/success/success.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HomeComponent } from './components/home/home.component';
     ErrorComponent,
     BlogComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    SuccessComponent
   ],
   imports: [
     BrowserModule,

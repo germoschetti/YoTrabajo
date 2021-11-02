@@ -69,6 +69,12 @@
 ul.show {
     top: 65px;
 }
+.login-sm{
+    display: none;
+}
+.user-sm{
+    display: none;
+}
 
 @media screen and (max-width: 1098px) {
     .logo {
@@ -77,9 +83,11 @@ ul.show {
     }
     .menu {
         height: 65px;
+        justify-content: space-between;
     }
     .btn-menu {
-        display: inline-flex;
+        display: flex;
+        color: #fff ;
     }
     .menu-items {
         position: fixed;
@@ -91,6 +99,9 @@ ul.show {
         transition: all .5s;
         flex-direction: column;
         justify-content: center;
+    }
+    .menu-items-end {
+        display: none;
     }
     .menu-items li {
         margin: 20px 0;
@@ -111,5 +122,11 @@ ul.show {
     .logo {
         font-size: 25px;
         padding-left: 35px;
+    }
+    .login-sm{
+        display: block;
+    }
+    .user-sm{
+        display: block;
     }
 }

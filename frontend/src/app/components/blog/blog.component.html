@@ -1,6 +1,5 @@
 <app-navbar class="nav"></app-navbar>
 <div class="extra">
-
     <img src="../../../assets/image/blog-bg.jpg" alt="" style="height: 70vh;" width="100%">
 
     <div class="filter-container ">
@@ -13,16 +12,10 @@
 
     <div class="selectdiv">
         <label>
-            <select>
+            <select (input)="getPostsByCategory($event.target);">
                 <option selected disabled>Categories</option>
                 <option>All</option>
-                <option>Interviews</option>
-                <option>LinkedIn</option>
-                <option value="">English</option>
-                <option value="">English</option>
-                <option value="">English</option>
-                <option value="">English</option>
-                <option value="">English</option>
+                <option *ngFor="let category of categories" [value]='category.id'>{{category.title}}</option>
             </select>
         </label>
     </div>
@@ -33,7 +26,8 @@
                 <div class="image-data">
                     <div class="background-image" [ngStyle]="{'background-image': 'url('+ post.miniature + ')'}"></div>
                     <div class="publication-details">
-                        <a href="#" class="author"><i class="fas fa-user"></i> {{post.user.first_name}}
+                        <a href="https://german-moschetti.netlify.app/" target="__blank" class="author"><i
+                                class="fas fa-user"></i> {{post.user.first_name}}
                             {{post.user.last_name}}</a>
                         <span class="date"><i class="fas fa-calendar-alt"></i> {{post.created_at | date: 'MMMM d, y'}}
                         </span>
@@ -44,7 +38,10 @@
                     <h1 class="title">{{post.title}}</h1>
                     <h2 class="subtitle">{{post.description}}</h2>
                     <p class="description">
-                        {{post.content}}
+                        <span style="margin-left: .8rem;">
+                            {{post.content}}
+                        </span>
+
                     </p>
                     <div class="cta">
                         <a (click)='showPost(post.id)'>Read more &rarr;</a>
@@ -62,23 +59,53 @@
 <div class="post">
     <div class="container-post" *ngIf='postDetail'>
         <img [src]="postDetail.miniature" class="post-image" alt="">
+
         <div class="post-detail-container">
             <div class="post-detail-data">
-                <div class="post-detail-information"> 
-                    <button (click)='hidePost()' style="height: 15px;">
-                        <======= </button>
-                  <div>
-                    <a href="#" class=""><i class="fas fa-user"></i>
-                        {{postDetail.user.first_name}} {{postDetail.user.last_name}}</a>
-                    <span><i class="fas fa-calendar-alt"></i>{{postDetail.created_at | date: 'MMMM d, y'}}</span>
-                  </div>
+                <div class="post-detail-information">
+                    <i (click)='hidePost()' class="fas fa-arrow-left"></i>
+                    <div class="post-detail-date">
+                        <a href="https://german-moschetti.netlify.app/" target="__blank" class=""><i
+                                class="fas fa-user"></i>
+                            {{postDetail.user.first_name}} {{postDetail.user.last_name}}</a>
+                        <span><i class="fas fa-calendar-alt"></i>{{postDetail.created_at | date: 'MMMM d, y'}}</span>
+                    </div>
                 </div>
                 <h2>{{postDetail.title}}</h2>
                 <h3>{{postDetail.description}}</h3>
-                <p>{{postDetail.content}}</p>
-                
+                <p *ngFor="let content of contentPost">{{content}}</p>
+
+
+                <h4 class="comment-title">Comments</h4>
+                <div class="create-comment">
+                    <form action="" #commentForm name="commentForm">
+                        <textarea name="" id="" cols="30" rows="10" [(ngModel)]='content' (click)='logged()'
+                            (focus)='logged()' name="content" placeholder="Write your comment here..."></textarea><br>
+                        <div class="btn-container">
+                            <button class="btn-comment" (click)='createComment(commentForm)'>Send</button>
+                        </div>
+                    </form>
+                </div>
+                <div *ngIf='comments'>
+                    <div class="comment-box" *ngFor='let comment of comments'>
+                        <div class="img-porf-container">
+                            <img src="" alt="">
+                        </div>
+                        <div class="comment">
+                            <div class="comment-info">
+                                <h4>{{comment.user.username}}</h4>
+                                <span> {{comment.created_at | date: 'MMM d, y'}}.</span>
+                            </div>
+                            <p>{{comment.content}}</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+
+
         </div>
+
 
 
     </div>

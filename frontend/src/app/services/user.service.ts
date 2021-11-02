@@ -9,6 +9,7 @@ import { User } from '../models/user/user.module';
 export class UserService {
   url: string;
   error$: Subject<string>;
+  success$: Subject<string>
   access$: Subject<string>;
   accessHeader:HttpHeaders;
   token:string;
@@ -16,6 +17,7 @@ export class UserService {
   constructor(private http:HttpClient) { 
     this.url = 'http://127.0.0.1:8000/api/';
     this.error$ = new Subject<string>();
+    this.success$ = new Subject<string>();
     this.access$ = new Subject<string>();
     this.accessHeader = new HttpHeaders;
     this.token = '';
@@ -35,6 +37,10 @@ export class UserService {
     return this.http.get(this.url + 'auth/me/', {headers: this.accessHeader});
   }
 
+  currentSession(){
+    return localStorage.getItem('token')
+  }
+
   /* Set shared variables as observable */
   setError(message: string): void {
     this.error$.next(message);
@@ -42,6 +48,14 @@ export class UserService {
 
   getError(): Observable<string> {
     return this.error$.asObservable();
+  }
+
+  setSuccess(message: string): void {
+    this.success$.next(message);
+  }
+
+  getSuccess(): Observable<string> {
+    return this.success$.asObservable();
   }
 
   setToken(token: string): void {

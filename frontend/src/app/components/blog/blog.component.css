@@ -116,8 +116,18 @@ a {
     margin: .4rem 0 .6rem 0;
 }
 
+
 .description {
     position: relative;
+/*     max-width: 300px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; */
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    line-height: 1.6;
+    overflow: hidden;
 }
 
 .description::first-letter {
@@ -127,7 +137,7 @@ a {
 .description::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: 1.8%;
     left: 0;
     width: .2rem;
     height: 1rem;
@@ -219,7 +229,8 @@ a {
 
 .container-post {
     width: 100%;
-    height: 100%;
+    height: 100vh;
+    min-height: 100%;
     overflow-y: scroll;
 }
 
@@ -238,7 +249,6 @@ a {
     display: flex;
     justify-content: center;
     width: 80%;
-    height: 100%;
     top: -20%;
     margin: 0 auto;
     background-color: #fff;
@@ -251,11 +261,20 @@ a {
     width: 100%;
     text-align: center;
 }
+
+.post-detail-data p {
+    text-indent: 1.2em;
+    text-align: justify;
+}
+
 .post-detail-data h2 {
     margin-top: 40px;
     font-size: 2.5rem;
-    color: var(--first-color);
+    background: var(--gradient-color);
+    -webkit-background-clip: text;
+    color: transparent;
 }
+
 .post-detail-data h3 {
     font-size: 1.4rem;
     color: #a2a2a2;
@@ -269,6 +288,7 @@ a {
     color: var(--first-color);
     opacity: 1;
 }
+
 .post-detail-information {
     width: 100%;
     display: flex;
@@ -280,18 +300,110 @@ a {
     opacity: .8;
 }
 
-.post-detail-information a{
-margin: 0 15px;
-
+.post-detail-information a {
+    margin: 0 15px;
 }
-.post-detail-information i{
+
+.post-detail-information>i {
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.post-detail-information i {
     margin: 0 4px;
-    
-    }
+}
+/* COMMENT SECTION */
+.comment-title{
+    color: var(--first-color);
+    font-size: 2.1rem;
+    margin: 100px 0;
+}
+.create-comment textarea{
+    width: 80%;
+    outline: none;
+    border: 0.4px solid rgba(4, 190, 254, .8);
+    border-bottom: 2px solid rgba(4, 190, 254, .8);
+    height: 200px;
+    font-size: 1.2rem;
+    opacity: .8;
+    padding: 15px;
+    font-family: 'Poppins';
+    transition: all ease-in-out .1s;
+}
+
+.create-comment textarea:focus{
+    outline: none;
+    border: 2px solid rgba(4, 190, 254, .8);
+}
+
+.btn-container{
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: end;
+}
+.btn-comment{
+    width: 100px;
+        padding: 9px;
+        background: transparent;
+        border: 1px solid;
+        color: #53c4eb;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: ease-in-out .4s;
+}
+
+.btn-comment:hover{
+        background: #53c4eb;
+        color: #fff;
+}
+
+.comment-box{
+    width: 90%;
+    display: flex;
+    margin: 40px auto;
+    padding: 15px;
+    box-shadow: 0px 0rem 1rem rgb(0 0 0 / 12%);
+}
+
+.img-porf-container{
+        width:70px;
+        height: 70px;
+        border-radius:50%;
+        border:1px solid #666;
+}
+.comment{
+    width: 100%;
+}
+
+.comment-info{
+    padding-left: 15px 0;
+    width: 100%;
+    margin: 0 6px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--first-color);
+    opacity: .9;
+    font-size: 1rem;
+}
+
+.comment-info h4{
+    font-size: 1.1rem;
+    padding-left: 15px;
+}
+
+.comment p{
+    font-size: 1.1rem;
+    margin: 1rem;
+}
+
+
+/* END COMMENT SECTION */
 
 /* SELECT DIV */
 
 @media screen and (min-width:600px) {
+
     .card-conteiner {
         border-radius: 10px;
     }
@@ -349,7 +461,53 @@ margin: 0 15px;
     } */
 }
 
+@media screen and (max-width:800px) {
+    .post-detail-data p {
+        font-size: 1rem;
+        margin: 2rem;
+    }
+
+    .post-detail-data h2 {
+        margin-top: 35px;
+        font-size: 2rem;
+    }
+    
+    .post-detail-data h3 {
+        font-size: 1rem;
+    }
+
+    .post-detail-information {
+        display: block;
+    }
+    
+    .post-detail-information a {
+        margin: 0 15px;
+    }
+    
+    .post-detail-information>i {
+    width: 100%;
+    text-align: start;
+    font-size: 1.5rem;
+    }
+
+    .post-detail-date{
+        margin: 30px 0 -10px 0;
+        opacity: .9;
+    }
+    
+
+}
+
 @media screen and (max-width:1000px) {
+    /* POST DETAIL */
+    .post-detail-container{
+        width: 98%;
+    }
+
+    .post-detail-data{
+        padding: 0 5px;
+    }
+    /* END POST DETAIL */
     .filter-container {
         display: none;
     }

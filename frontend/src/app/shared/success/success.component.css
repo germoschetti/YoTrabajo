@@ -14,13 +14,13 @@ h3{
   width:50%;
   margin: 30px auto;
   border-radius:5px;
-  z-index: 32;
+  z-index: 33;
   border-left: 5px solid;
 }
 
-.danger-alert{
-    background-color: #f7a7a3;
+.success-alert{
+    background-color: #9bd7b4;
     padding:40px;
     box-shadow:0 0 15px 5px rgba(77, 70, 70, 0.253);
-    color:#8f130c;
+    color:#178f0c;
 }

@@ -48,7 +48,9 @@ export class LoginComponent implements OnInit {
     else {
       this.user = new User(this.email, this.password, this.username);
       this._userService.registerUser(this.user).subscribe(data => {
+        this._userService.setSuccess('Your account has been created successfully');
         form.reset();
+        
       }, err => {
         console.log('err', err.error)
         if (err.error.username) {
