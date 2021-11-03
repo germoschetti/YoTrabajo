@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
 *{
     padding: 0;
     margin: 0;
@@ -11,6 +12,11 @@
     --gradient-color: linear-gradient(to right bottom, rgba(17, 16, 29, .7), rgba(4, 190, 254, .8));
     --second-color: rgba(4, 190, 254, .8);
   }
+
+html{
+    scroll-behavior: smooth;
+    font-family: 'Poppins';
+}
 
 body{
     background-color: #eee;

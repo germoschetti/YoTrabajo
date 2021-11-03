@@ -11,6 +11,7 @@ import { BlogComponent } from './components/blog/blog.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { SuccessComponent } from './shared/success/success.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SuccessComponent } from './shared/success/success.component';
     BlogComponent,
     NavbarComponent,
     HomeComponent,
-    SuccessComponent
+    SuccessComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
