@@ -8,7 +8,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 class PostViews(ModelViewSet):
     permission_classes = [IsAdminOrReadOnly]
     serializer_class = PostSerializer
-    queryset = Post.objects.filter(published=True)
+    queryset = Post.objects.filter(published=True).order_by('-created_at')
 
 
     filter_backends = [DjangoFilterBackend]
