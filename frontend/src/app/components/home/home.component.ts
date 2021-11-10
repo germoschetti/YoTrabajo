@@ -32,6 +32,8 @@ export class HomeComponent implements OnInit {
     this.videoAutoPlay()
   }
 
+  /* I HAVE TO REFACTOR THIS SECTION */
+
   videoAutoPlay() {
     let heightBrowser = window.innerHeight
     let heigthVideo = this.video.offsetHeight

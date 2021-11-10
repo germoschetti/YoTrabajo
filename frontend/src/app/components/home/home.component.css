@@ -1,43 +1,44 @@
 .container {
     height: 100%;
-    width: 100%;
+    width: 100vw;
 }
 
 .shape-one {
     position: relative;
-    height: 100vh;
-    width: 100%;
+    min-height: 900px;
+    height: auto;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 75% 81%, 0 100%, 0 100%);
-    /* clip-path: polygon(100% 0, 100% 99%, 72% 62%, 0 100%, 0 0); */
-    background-color: var(--first-color);
+    background: var(--first-color);
 }
 
-.first-page {
-    position: absolute;
-    top: 32%;
-    padding: 0 100px;
-}
+/* .first-page {
+    position: relative;
+} */
 
 .first-content {
+    min-height: 100%;
+    padding: 150px 0;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .title {
     color: #fff;
-    width: 50%;
+    width: 52%;
 }
 
 .title h1 {
     width: 100%;
-    font-size: 4rem;
+    font-size: 3.7rem;
     color: #fff;
     margin-bottom: 1rem;
 }
 
 .title h2 {
     width: 100%;
-    font-size: 2.7rem;
+    font-size: 2.5rem;
     color: rgba(255, 255, 255, 0.527);
 }
 
@@ -61,7 +62,6 @@
 }
 
 .btn-more a:hover {
-    width: 150px;
     color: var(--first-color);
     background: var(--second-color);
     transition: ease-in-out .4s;
@@ -69,8 +69,8 @@
 }
 
 .img-home {
-    width: 500px;
-    height: 500px;
+    width: 27rem;
+    height: 27rem;
 }
 
 .img-home img {
@@ -78,37 +78,43 @@
     height: 100%;
 }
 
-.second-page{
+.second-page {
     width: 100%;
 }
 
+/* MEDIA QUERY */
+
+
+
 /* PRE-CARDS */
-.blog-header{
+
+.blog-header {
     width: 80%;
     margin: 0 auto;
 }
 
-.blog-header h3{
+.blog-header h3 {
     text-align: center;
     font-size: 2.8rem;
     color: var(--first-color);
 }
 
-.blog-header h4{
+.blog-header h4 {
     margin: 3rem 0 1.5rem 0;
     font-size: 2.5rem;
     color: var(--first-color);
 }
 
-.blog-header p{
+.blog-header p {
     font-size: 1.38rem;
     line-height: 1.5;
     color: var(--first-color);
 }
+
 /* END PRE-CARDS */
 
-
 /* CARDS */
+
 .cards-div {
     margin: 5rem 0;
     width: 100%;
@@ -130,7 +136,6 @@
     object-fit: cover;
     /* -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0004); */
     transform-origin: center;
-    transform: perspective(800px) rotateY(25deg);
     transition: 0.5s;
     box-shadow: 8px 10px 5px rgba(0, 0, 0, 0.568);
 }
@@ -190,17 +195,16 @@
 
 /* END CARDS */
 
-.shape-two{
+.shape-two {
     margin-top: 150px;
     width: 100%;
-    height: 1250px;
-   /*  clip-path: polygon(100% 10%, 100% 55%, 100% 100%, 41% 100%, 0 100%, 0 12%, 25% 0); */
-   clip-path: polygon(100% 10%, 100% 55%, 100% 100%, 41% 100%, 0 100%, 0 12%, 35% 0);
+    height: 1100px;
+    clip-path: polygon(100% 10%, 100% 55%, 100% 100%, 41% 100%, 0 100%, 0 12%, 35% 0);
     background: var(--first-color);
     position: relative;
 }
 
-.third-page{
+.third-page {
     position: relative;
     color: white;
     top: 12%;
@@ -208,72 +212,188 @@
     margin: 0 auto;
     width: 80%;
 }
-.portfolio-header{
+
+.portfolio-header {
     padding-top: 1.8rem;
 }
 
-.portfolio-header h4{
+.portfolio-header h4 {
     margin: 2.5rem 0;
     font-size: 2.5rem;
     color: #fff;
 }
 
-.portfolio-header p{
+.portfolio-header p {
     font-size: 1.38rem;
     line-height: 1.7;
 }
+
 /* VIDEO */
+
 .video-responsive {
     width: 70%;
     margin: 4.5rem auto;
-	height: 0;
-	overflow: hidden;
-	padding-bottom: 56.25%;
-	padding-top: 30px;
-	position: relative;
-	}
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    padding-top: 30px;
+    position: relative;
+}
+
 .video-responsive iframe, .video-responsive object, .video-responsive embed {
-	height: 70%;
-	left: 0;
-	position: absolute;
-	top: 0;
-	width: 100%;
-	}
+    height: 70%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
 
 /* CIRCLES SECTION */
-.fourth-page{
+
+.fourth-page {
     color: var(--first-color);
     text-align: center;
     margin: 0 auto 8rem auto;
     width: 80%;
 }
 
-.fourth-page h3{
-    margin: 3rem 0 3rem 0 ;
+.fourth-page h3 {
+    margin: 3rem 0 3rem 0;
     font-size: 3rem;
     color: var(--first-color);
 }
 
-.fourth-page p{
+.fourth-page p {
     font-size: 1.3rem;
     font-weight: 600;
     line-height: 1.3;
     margin: 0.5rem 0;
 }
 
-.circles-container{
+.circles-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
-.circle{
+.circle {
     width: 170px;
     height: 170px;
-    margin: 1.1rem 3rem;
+    margin: 3rem 3rem;
 }
 
-.circle img{
+.circle img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
+}
+
+@media screen and (max-width:1100px) {
+    .title {
+        width: 90%;
+        text-align: center;
+    }
+    .title h2 {
+        margin: 0 auto;
+        text-align: center;
+    }
+    .shape-one {
+        width: auto;
+        width: 100%;
+        clip-path: polygon(50% 0%, 100% 0, 100% 100%, 77% 92%, 0 100%, 0% 60%, 0 0);
+    }
+    .blog-header {
+        width: 90%;
+        text-align: center;
+    }
+
+    .shape-two {
+        margin-top: 150px;
+        width: 100%;
+        height: 1100px;
+        clip-path: polygon(100% 10%, 100% 55%, 100% 100%, 41% 100%, 0 100%, 0 12%, 35% 0);
+        background: var(--first-color);
+        position: relative;
+    }
+
+    .video-responsive{
+        width: 90%;
+        height: 637px;
+    }
+}
+@media screen and (max-width:770px) {
+    .title {
+        width: 100%;
+    }
+    .title h1{
+        font-size: 3rem;
+    }
+    .title h2 {
+        display: none;
+    }
+
+    .btn-more a{
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .blog-header{
+        width: 90%;
+    }
+
+    .blog-header h3{
+        font-size: 2.5rem;
+    }
+    .blog-header h4{
+        font-size: 2.2rem;
+    }
+    .blog-header p{
+        font-size: 1.19rem;
+        text-align: justify;
+    }
+
+    .container-cards{
+        width: 230px;
+    }
+
+    .container-cards img{
+        height: 300px;
+    }
+
+    .third-page{
+        width: 90%;
+    }
+    .publication-details {
+        font-size: .8rem;
+    }
+  
+    .portfolio-header h4 {
+        font-size: 2.2rem;
+    }
+    
+    .portfolio-header p {
+        font-size: 1.19rem;
+        text-align: justify;
+    }
+    
+    /* VIDEO */
+    
+    .video-responsive {
+      width: 100%;
+      height: 580px;
+    }
+    
+    .video-responsive iframe, .video-responsive object, .video-responsive embed {
+        height: 70%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:1100px) {
+    .container-cards img {
+        transform: perspective(800px) rotateY(25deg);
+    }
 }

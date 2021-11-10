@@ -16,6 +16,7 @@
 html{
     scroll-behavior: smooth;
     font-family: 'Poppins';
+    width: 100vw;
 }
 
 body{
