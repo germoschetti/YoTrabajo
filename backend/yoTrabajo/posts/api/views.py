@@ -12,6 +12,4 @@ class PostViews(ModelViewSet):
 
 
     filter_backends = [DjangoFilterBackend]
-
     filterset_fields = ['category']
-    
