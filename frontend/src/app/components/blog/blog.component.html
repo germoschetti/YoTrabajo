@@ -22,7 +22,7 @@
 
     <div class="container">
         <div class="card-container" *ngFor='let post of posts'>
-            <div class="card">
+            <div class="card" [id]="post.id">
                 <div class="image-data">
                     <div class="background-image" [ngStyle]="{'background-image': 'url('+ post.miniature + ')'}"></div>
                     <div class="publication-details">

@@ -10,7 +10,7 @@
                         <a href="#ourServices"> Know more...</a>
                     </div>
                 </div>
-    
+
                 <div class="img-home">
                     <img src="../../../assets/image/home.svg" alt="">
                 </div>
@@ -20,59 +20,35 @@
 
 
     <div class="second-page" id="ourServices">
-        <div class="blog-header" >
-            <h3 >What we offer?</h3>
+        <div class="blog-header">
+            <h3>What we offer?</h3>
             <h4>Blog Section</h4>
-            <p><!-- Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea incidunt ipsam et, aliquid ut accusamus.
+            <p>
+                <!-- Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea incidunt ipsam et, aliquid ut accusamus.
                 Maiores
                 porro repudiandae dignissimos consequuntur, cumque, reiciendis, accusantium qui ad magni praesentium ab
                 excepturi voluptatem? -->
-            
-In our blog you will find very relevant articles to increase your chances of getting the job of your dreams. You will learn more about job interviews, Linkedin, job portals, the important skills to develop and much more! <a routerLink='/blog'>Visit Our Blog</a></p> 
+
+                In our blog you will find very relevant articles to increase your chances of getting the job of your
+                dreams. You will learn more about job interviews, Linkedin, job portals, the important skills to develop
+                and much more! <a routerLink='/blog'>Visit Our Blog</a>
+            </p>
         </div>
 
         <div class="cards-div">
-            <div class="container-cards">
-                <img src="http://127.0.0.1:8000/posts/images/backiee-194087_0qs0lim.jpg" alt="">
+            <div class="container-cards" *ngFor='let post of posts'>
+                <img [src]="post.miniature" alt="">
                 <div class="publication-details">
                     <a href="https://german-moschetti.netlify.app/" target="__blank" class="author"><i
-                            class="fas fa-user"></i> German
-                        Moschetti</a>
-                    <span class="date"><i class="fas fa-calendar-alt"></i> 21 Octubre, 2021
+                            class="fas fa-user"></i> {{post.user.first_name}} {{post.user.last_name}}
+                    </a>
+                    <span class="date"><i class="fas fa-calendar-alt"></i> {{post.created_at | date: 'MMMM d, y'}}
                     </span>
-                </div>
-            </div>
 
-            <div class="container-cards">
-                <img src="http://127.0.0.1:8000/posts/images/backiee-194087_0qs0lim.jpg" alt="">
-                <div class="publication-details">
-                    <a href="https://german-moschetti.netlify.app/" target="__blank" class="author"><i
-                            class="fas fa-user"></i> German
-                        Moschetti</a>
-                    <span class="date"><i class="fas fa-calendar-alt"></i> 21 Octubre, 2021
-                    </span>
-                </div>
-            </div>
-
-            <div class="container-cards">
-                <img src="http://127.0.0.1:8000/posts/images/backiee-194087_0qs0lim.jpg" alt="">
-                <div class="publication-details">
-                    <a href="https://german-moschetti.netlify.app/" target="__blank" class="author"><i
-                            class="fas fa-user"></i> German
-                        Moschetti</a>
-                    <span class="date"><i class="fas fa-calendar-alt"></i> 21 Octubre, 2021
-                    </span>
-                </div>
-            </div>
-
-            <div class="container-cards">
-                <img src="http://127.0.0.1:8000/posts/images/backiee-194087_0qs0lim.jpg" alt="">
-                <div class="publication-details">
-                    <a href="https://german-moschetti.netlify.app/" target="__blank" class="author"><i
-                            class="fas fa-user"></i> German
-                        Moschetti</a>
-                    <span class="date"><i class="fas fa-calendar-alt"></i> 21 Octubre, 2021
-                    </span>
+                    <a [routerLink]='["/blog"]' style="text-decoration: none; color: white;">
+                        <h3>{{post.title}}</h3>
+                    </a>
+                    <h4>{{post.description}}</h4>
                 </div>
             </div>
 
@@ -82,19 +58,11 @@ In our blog you will find very relevant articles to increase your chances of get
         <div class="third-page">
             <div class="portfolio-header">
                 <h4>Portfolio Generator</h4>
-                <p><!-- Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea incidunt ipsam et, aliquid ut accusamus.
-                    Maiores
-                    porro repudiandae dignissimos consequuntur, cumque, reiciendis, accusantium qui ad magni praesentium
-                    ab
-                    excepturi voluptatem?
-                    andae dignissimos consequuntur, cumque, reiciendis, accusantium qui ad magni praesentium ab
-                    excepturi voluptatem?issimos consequuntur, cumque, reiciendis, accusantium qui ad magni praesentium
-                    ab
-                    excepturi voluptateissimos consequuntur, cumque, reiciendis, accusantium qui ad --> 
-                
-
-                    With this tool you can increase and improve your chances of getting that job you want so much. Create your portfolio for free and show your projects, studies and skills, your interests and much more! <a routerLink='/blog'>Let's do it</a></p>
-<!-- <p> Create your own free portfolio in a few simple steps.</p> -->
+                <p>
+                    With this tool you can increase and improve your chances of getting that job you want so much.
+                    Create your portfolio for free and show your projects, studies and skills, your interests and much
+                    more! <a routerLink='/blog'>Let's do it</a>
+                </p>
             </div>
             <div class="video-responsive">
                 <iframe [src]="src | safe" title="YouTube video player" frameborder="0"
@@ -103,33 +71,30 @@ In our blog you will find very relevant articles to increase your chances of get
             </div>
         </div>
     </div>
-    
+
     <div class="fourth-page">
         <h3>How can our solution help you?</h3>
         <div class="circles-container">
             <div class="circle">
                 <img src="../../../assets/image/circle1.svg" alt="">
-                <p>This is a text you know</p>
+                <p>Increase your possibilities</p>
             </div>
-    
+
             <div class="circle">
                 <img src="../../../assets/image/circle1.svg" alt="">
-                <p>This is a text you know</p>
+                <p>Have your own portfolio</p>
             </div>
-    
+
             <div class="circle">
                 <img src="../../../assets/image/circle1.svg" alt="">
-                <p>This is a text you know</p>
+                <p>Prepare for job interviews</p>
             </div>
-    
+
             <div class="circle">
                 <img src="../../../assets/image/circle1.svg" alt="">
-                <p>This is a text you know</p>
+                <p>Meet new people</p>
             </div>
         </div>
     </div>
 
 </div>
-
-
-

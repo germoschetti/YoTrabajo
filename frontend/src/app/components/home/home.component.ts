@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HostListener } from '@angular/core';
+import { BlogService } from 'src/app/services/blog.service';
 
 @Component({
   selector: 'app-home',
@@ -13,12 +14,16 @@ export class HomeComponent implements OnInit {
   firstUrl:string;
   src:string;
   play:boolean;
+  posts:any
 
   constructor(
+    private _blogService: BlogService
   ) {
     this.play = false;
     this.firstUrl = "https://www.youtube.com/embed/onOEns_MnC4"
     this.src = this.firstUrl
+    this.posts = [];
+    this.getFourPosts()
   }
 
   ngOnInit(): void {
@@ -26,13 +31,14 @@ export class HomeComponent implements OnInit {
     this.videoAutoPlay()
   }
 
-  @HostListener("window:scroll", []) onWindowScroll() {
-    this.verticalOffset = window.pageYOffset
-    console.log('SRC ACTUAL: ', this.verticalOffset)
-    this.videoAutoPlay()
-  }
 
-  /* I HAVE TO REFACTOR THIS SECTION */
+
+  
+/* AUTOPLAY VIDEO */
+@HostListener("window:scroll", []) onWindowScroll() {
+  this.verticalOffset = window.pageYOffset
+  this.videoAutoPlay()
+}
 
   videoAutoPlay() {
     let heightBrowser = window.innerHeight
@@ -51,9 +57,6 @@ export class HomeComponent implements OnInit {
       this.play = false
       this.src = this.firstUrl
     }
-    console.log(
-      ' MIN: ',min + '\n', 
-      'MAX: ',max)
   }
 
   getOffset(el:any) {
@@ -62,6 +65,14 @@ export class HomeComponent implements OnInit {
       left: rect.left + window.scrollX,
       top: rect.top + window.scrollY
     };
+  }
+
+  getFourPosts(){
+    this._blogService.getAllPosts().subscribe(data=>{
+      for(let i = 0; i <= 3; i++){
+        this.posts.push(data[i])
+      }
+    })
   }
 
 
