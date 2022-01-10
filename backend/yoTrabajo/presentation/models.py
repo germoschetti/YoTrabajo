@@ -9,3 +9,6 @@ class Presentation(models.Model):
     profile_picture = models.ImageField(upload_to='presentation/images', null=True)
     cv = models.FileField(upload_to='presentation/cvs', null=True)
     user = models.ForeignKey(User, on_delete= CASCADE, null=False, unique=True)
+
+    def say_hello(message):
+        return message
