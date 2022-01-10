@@ -18,7 +18,7 @@ from django.urls import path
 from django.urls.conf import include
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from django.conf.urls import url
+from django.urls import re_path
 from django.views.static import serve
 import os
 # views
@@ -64,20 +64,20 @@ urlpatterns = [
     path('api/', include(router_project.urls)),
     path('api/', include(router_contact.urls)),
     path('api/', include(router_template.urls)),
-    url(r'^posts/(?P<path>.*)$', serve,
+    re_path(r'^posts/(?P<path>.*)$', serve,
         {'document_root': SITE_ROOT, 'show_indexes': True},
         name='posts_path'
         ),
-    url(r'^portfolio_template/(?P<path>.*)$', serve,
+    re_path(r'^portfolio_template/(?P<path>.*)$', serve,
         {'document_root': SITE_ROOT1, 'show_indexes': True},
         name='portfolio_template_path'
         ),
-    url(r'^presentation/(?P<path>.*)$', serve,
+    re_path(r'^presentation/(?P<path>.*)$', serve,
     {'document_root': SITE_ROOT2, 'show_indexes': True},
     name='presentation_path'
     ),
-    url(r'^projects/(?P<path>.*)$', serve,
+    re_path(r'^projects/(?P<path>.*)$', serve,
     {'document_root': SITE_ROOT3, 'show_indexes': True},
     name='projects_path'
-    ),
+    ), 
 ]

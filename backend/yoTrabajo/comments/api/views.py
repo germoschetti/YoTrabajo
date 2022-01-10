@@ -1,3 +1,4 @@
+from presentation.models import Presentation
 from rest_framework.viewsets import ModelViewSet
 from comments.api.serializers import CommentSerializer, CreateCommentSerializer
 from comments.models import Comment
@@ -13,6 +14,7 @@ class CommentsView(ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         self.serializer_class = CreateCommentSerializer
+
         return super().create(request, *args, **kwargs)
 
     def perform_create(self, serializer):
